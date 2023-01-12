@@ -67,15 +67,14 @@ function Today(person){
 
 //Upcoming Birthdays
 function Upcoming(person, toMonth){
-    let curretDay = new Date().getDate();
+    let currentDay = new Date().getDate();
     let currentMonth = new Date().getMonth();
-
+    console.log(currentDay, currentMonth);
     let filter = person.filter(data => {
         let day = new Date(data.birthday).getDate();
         let month = new Date(data.birthday).getMonth();
     
-        if(currentMonth === month && curretDay === day) return;
-       
+        if(currentMonth === month && currentDay >= day) return;
         return month >= currentMonth && month <= currentMonth + toMonth;
     }) 
 
